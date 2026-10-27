@@ -149,7 +149,7 @@
       ]
     },
     {
-      "path": "tests/SistemaTurnos.Integracion/SistemaTurnos.Integracion.csproj",
+      "path": "SistemaTurnos.Integracion.csproj",
       "frameworks": [
         {
           "framework": "net10.0",
@@ -385,7 +385,7 @@
       ]
     },
     {
-      "path": "tests/SistemaTurnos.Aplicacion.Pruebas/SistemaTurnos.Aplicacion.Pruebas.csproj",
+      "path": "SistemaTurnos.Aplicacion.Pruebas.csproj",
       "frameworks": [
         {
           "framework": "net10.0",

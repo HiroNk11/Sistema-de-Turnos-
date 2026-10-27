@@ -9,7 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          fetch-depth: 0
           persist-credentials: false
+      - name: Secretos en historial
+        shell: pwsh
+        run: ./tools/Verificar-Secretos.ps1
+      - name: Datos privados en fuentes
+        run: python tools/verificar_privacidad.py
       - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
         with:
           dotnet-version: '10.0.x'
@@ -31,5 +37,6 @@ jobs:
           dotnet run --project tests/SistemaTurnos.Integracion -c Release --no-build -- --aislada database
           if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas SQL.' }
       - name: HTTPS real y rechazo de acceso anónimo
+        timeout-minutes: 2
         shell: pwsh
         run: ./tools/Probar-Https.ps1

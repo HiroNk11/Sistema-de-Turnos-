@@ -1,5 +1,5 @@
 {
-  "fechaUtc": "2026-10-27T22:46:20.398435+00:00",
+  "fechaUtc": "2026-10-27T23:36:52.006897+00:00",
   "fuentes": [
     {
       "url": "https://api.nuget.org/v3/vulnerabilities/index.json",
@@ -25,7 +25,8 @@
     "src\\SistemaTurnos.WinForms\\packages.lock.json",
     "tests\\SistemaTurnos.Api.Pruebas\\packages.lock.json",
     "tests\\SistemaTurnos.Aplicacion.Pruebas\\packages.lock.json",
-    "tests\\SistemaTurnos.Integracion\\packages.lock.json"
+    "tests\\SistemaTurnos.Integracion\\packages.lock.json",
+    "tests\\SistemaTurnos.Tls.Pruebas\\packages.lock.json"
   ],
   "paquetesVersiones": 29,
   "hallazgos": [],

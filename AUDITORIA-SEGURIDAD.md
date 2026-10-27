@@ -113,3 +113,12 @@ almacén Windows de credenciales. `Publicar-GitHub.ps1` permite publicar desde l
 sesión Windows autenticada sin forzar la rama ni agregar archivos inadvertidos.
 El despliegue requiere confirmar equipo, identidad y nombre HTTPS; no se abrieron
 puertos ni se alteró la seguridad de la instalación existente.
+
+## Revisión de privacidad y aislamiento de pruebas
+
+Ver AUDITORIA-PRIVACIDAD.md. Se limpiaron las rutas del inventario y se preparó la
+reescritura autorizada del correo de autor. Se añadieron controles continuos de secretos
+y privacidad. La prueba TLS anterior dependía del almacén CurrentUser; se reemplazó
+por una CA en memoria y tres comprobaciones acotadas a un servidor local de pruebas.
+La confianza de Windows y el cliente HTTPS de producción quedan intactos. La compilación
+pasa, pero el entorno aislado conserva un error SSPI: no se afirma éxito TLS local.

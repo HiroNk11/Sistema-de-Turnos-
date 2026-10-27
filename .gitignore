@@ -27,3 +27,13 @@ __pycache__/
 *.pyc
 TestResults/
 artifacts/
+
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+*.key
+*.local.config
+*.local.json
+artifacts/

@@ -52,3 +52,11 @@ La prueba HTTP es en memoria: no verifica negociación TLS, certificados, firewa
 Se consultó además el catálogo oficial de NuGet mediante Python con TLS validado: 29 versiones resueltas sin avisos aplicables en la instantánea guardada en `AUDITORIA-DEPENDENCIAS.json`. Esto no garantiza ausencia de vulnerabilidades desconocidas. El script incluye un control positivo con una versión vulnerable conocida y pruebas de comparación de rangos.
 
 Referencias: [auditoría NuGet](https://learn.microsoft.com/nuget/concepts/auditing-packages), [seguridad de Kestrel](https://learn.microsoft.com/aspnet/core/fundamentals/servers/kestrel/security-considerations), [contraseñas NIST SP 800-63B-4](https://pages.nist.gov/800-63-4/sp800-63b.html). La lista local de contraseñas comunes es básica; no sustituye un catálogo completo de contraseñas comprometidas ni acredita cumplimiento integral de NIST.
+
+## Prueba TLS aislada
+
+El proyecto SistemaTurnos.Tls.Pruebas utiliza Kestrel real y una CA en memoria, con
+confianza limitada a su cliente de prueba. También exige rechazo de una CA no confiable
+y de un nombre incorrecto. No instala raíces en Windows ni reemplaza la comprobación
+del certificado real que se utilizará al desplegar. La ejecución local sigue bloqueada
+por SSPI del entorno aislado; revisar el resultado de CI antes de darla por aprobada.

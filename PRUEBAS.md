@@ -52,8 +52,10 @@ flujo es la evidencia de ejecución, no la mera presencia del script. La prueba 
 rol usa un usuario SQL sin login; no demuestra el aislamiento de los grupos Windows
 y permisos efectivos del servidor de producción.
 
-`tools/Probar-Https.ps1` comprueba una conexión HTTPS real y un rechazo 401 usando
-un certificado temporal para localhost. Lo agrega y elimina en CurrentUser, junto
-con el proceso y archivo temporal. Ejecutarlo con una cuenta de pruebas. No instala
-un certificado de producción ni desactiva la validación TLS.
-
+`tools/Probar-Https.ps1` ejecuta tres pruebas TLS reales con Kestrel y una CA
+efímera en memoria: cliente de prueba confiable recibe 401/no-store, cliente normal
+rechaza esa CA y un nombre incorrecto también se rechaza. La confianza personalizada
+solo existe en ese HttpClient de prueba. No instala certificados ni cambia el cliente
+de producción. No demuestra que un certificado de despliegue esté bien instalado.
+La cuenta aislada de ejecución local tiene un fallo SSPI de Windows; no se declara
+aprobada esta prueba hasta obtener una ejecución satisfactoria en un entorno válido.

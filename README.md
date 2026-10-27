@@ -63,7 +63,7 @@ El servidor requiere `SISTEMATURNOS_CONNECTION`; fuera de Development también e
 python -m unittest discover -s tools -p 'test_*.py'
 # Base nueva de pruebas: crea y elimina solo una base con nombre aleatorio.
 dotnet run --project tests/SistemaTurnos.Integracion -- --aislada database
-# TLS real: certificado temporal solo para la cuenta de pruebas, eliminado al finalizar.
+# TLS real: CA efímera en memoria, sin instalar certificados.
 .\tools\Probar-Https.ps1
 ```
 
@@ -93,3 +93,9 @@ Windows autenticada en GitHub ejecutar `./Publicar-GitHub.ps1`. Publica únicame
 los commits revisados de `main`, requiere un árbol limpio y no fuerza el remoto.
 Si la autenticación falla, completarla en Git Credential Manager o habilitar escritura
 en la integración; nunca compartir tokens ni contraseñas por chat.
+
+## Privacidad del código
+
+Ver [revisión de credenciales, datos privados e historial](AUDITORIA-PRIVACIDAD.md).
+Se eliminaron rutas del inventario y se preparó el historial sin correo personal.
+Los valores de configuración documentados son nombres, no credenciales incorporadas.
