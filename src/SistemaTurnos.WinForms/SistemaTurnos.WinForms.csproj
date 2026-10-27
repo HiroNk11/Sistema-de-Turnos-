@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../SistemaTurnos.Aplicacion/SistemaTurnos.Aplicacion.csproj" />
+    <ProjectReference Include="../SistemaTurnos.Infraestructura.Http/SistemaTurnos.Infraestructura.Http.csproj" />
+    <!-- Solo Program.cs usa infraestructura para componer las dependencias. -->
+    <ProjectReference Include="../SistemaTurnos.Infraestructura.SqlServer/SistemaTurnos.Infraestructura.SqlServer.csproj" />
+    <None Include="conexion.txt" CopyToOutputDirectory="PreserveNewest" Condition="Exists('conexion.txt')" />
+  </ItemGroup>
+</Project>

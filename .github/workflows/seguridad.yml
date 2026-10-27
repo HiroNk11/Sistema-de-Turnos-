@@ -1,0 +1,35 @@
+name: Seguridad
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  validar:
+    runs-on: windows-2022
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
+        with:
+          dotnet-version: '10.0.x'
+      - name: Restaurar versiones bloqueadas y auditar todas las dependencias
+        run: dotnet restore SistemaTurnos.sln --locked-mode -p:SecurityAudit=true
+      - name: Compilar
+        run: dotnet build SistemaTurnos.sln -c Release --no-restore
+      - name: Casos de uso y seguridad
+        run: dotnet run --project tests/SistemaTurnos.Aplicacion.Pruebas -c Release --no-build
+      - name: Contrato HTTP
+        run: dotnet run --project tests/SistemaTurnos.Api.Pruebas -c Release --no-build
+      - name: Comparador de avisos
+        run: python -m unittest discover -s tools -p 'test_*.py'
+      - name: SQL real con base temporal y permisos mínimos
+        shell: pwsh
+        run: |
+          sqllocaldb start MSSQLLocalDB
+          if ($LASTEXITCODE -ne 0) { throw 'No se pudo iniciar LocalDB de pruebas.' }
+          dotnet run --project tests/SistemaTurnos.Integracion -c Release --no-build -- --aislada database
+          if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas SQL.' }
+      - name: HTTPS real y rechazo de acceso anónimo
+        shell: pwsh
+        run: ./tools/Probar-Https.ps1

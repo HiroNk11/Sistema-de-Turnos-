@@ -1,0 +1,34 @@
+{
+  "fechaUtc": "2026-10-27T22:46:20.398435+00:00",
+  "fuentes": [
+    {
+      "url": "https://api.nuget.org/v3/vulnerabilities/index.json",
+      "sha256": "3bdc54f07bf7015b4eced95f14a120bbbf9fc63139c052135c1987a12c0aa766"
+    },
+    {
+      "url": "https://api.nuget.org/v3-vulnerabilities/2026.10.26.23.37.37/vulnerability.base.json",
+      "sha256": "a7a2245867868fb5930856a3b6a1776615ca236ee355c709ec4dd0d94c8bb604",
+      "actualizado": "2026-10-26T23:37:37.6351372Z"
+    },
+    {
+      "url": "https://api.nuget.org/v3-vulnerabilities/2026.10.26.23.37.37/2026.10.27.17.37.43/vulnerability.update.json",
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "actualizado": "2026-10-27T17:37:43.5401707Z"
+    }
+  ],
+  "archivosBloqueo": [
+    "src\\SistemaTurnos.Api\\packages.lock.json",
+    "src\\SistemaTurnos.Aplicacion\\packages.lock.json",
+    "src\\SistemaTurnos.Dominio\\packages.lock.json",
+    "src\\SistemaTurnos.Infraestructura.Http\\packages.lock.json",
+    "src\\SistemaTurnos.Infraestructura.SqlServer\\packages.lock.json",
+    "src\\SistemaTurnos.WinForms\\packages.lock.json",
+    "tests\\SistemaTurnos.Api.Pruebas\\packages.lock.json",
+    "tests\\SistemaTurnos.Aplicacion.Pruebas\\packages.lock.json",
+    "tests\\SistemaTurnos.Integracion\\packages.lock.json"
+  ],
+  "paquetesVersiones": 29,
+  "hallazgos": [],
+  "controlVersionVulnerableDetectada": true,
+  "estado": "SIN_AVISOS_APLICABLES_EN_LA_INSTANTANEA"
+}

@@ -1,0 +1,1 @@
+Server=(localdb)\MSSQLLocalDB;Database=SistemaTurnos;Integrated Security=true;Encrypt=false;Connect Timeout=10

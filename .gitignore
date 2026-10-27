@@ -1,0 +1,29 @@
+# Archivos de compilación y del IDE
+**/bin/
+**/obj/
+.vs/
+.vscode/
+*.user
+*.suo
+# Datos, secretos y configuración de instalación
+.env
+.env.*
+!.env.example
+**/conexion.txt
+**/appsettings.*.json
+*.pfx
+*.p12
+*.pem
+*.key
+*.cer
+*.mdf
+*.ldf
+*.bak
+*.log
+smtp.protegido
+**/secrets.json
+# Archivos temporales
+__pycache__/
+*.pyc
+TestResults/
+artifacts/
