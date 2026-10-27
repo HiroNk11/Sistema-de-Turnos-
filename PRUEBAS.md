@@ -59,3 +59,24 @@ solo existe en ese HttpClient de prueba. No instala certificados ni cambia el cl
 de producción. No demuestra que un certificado de despliegue esté bien instalado.
 La cuenta aislada de ejecución local tiene un fallo SSPI de Windows; no se declara
 aprobada esta prueba hasta obtener una ejecución satisfactoria en un entorno válido.
+
+## Compatibilidad TLS con Windows
+
+La ejecución de GitHub asociada al commit de privacidad aprobó secretos, privacidad,
+restauración auditada, compilación, las 81 pruebas de Aplicación, las 23 HTTP, siete
+Python y las 22 SQL reales. Falló al negociar TLS con el certificado de prueba.
+
+La clave obtenida mediante CopyWithPrivateKey es efímera. Schannel requiere una clave
+compatible con su proveedor Windows: se reimporta el PFX desde un buffer, con una
+contraseña aleatoria y UserKeySet. No se utiliza PersistKeySet y .NET gestiona la
+vida del contenedor temporal. El buffer PFX se borra después de importar; no se crea
+un archivo PFX ni se agrega una raíz confiable a Windows. En otros sistemas se
+mantiene EphemeralKeySet.
+
+La validación del nombre, la cadena personalizada del cliente de prueba y los dos
+rechazos esperados permanecen activos. El cliente de producción sigue usando su
+validación normal de certificados. Esta corrección necesita una nueva ejecución
+aprobada en Windows; compilar en el entorno aislado no demuestra éxito TLS.
+
+Referencia técnica: https://github.com/dotnet/runtime/issues/23749 y
+https://github.com/dotnet/runtime/issues/101090.

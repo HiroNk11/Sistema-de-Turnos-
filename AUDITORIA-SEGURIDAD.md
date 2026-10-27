@@ -122,3 +122,11 @@ y privacidad. La prueba TLS anterior dependía del almacén CurrentUser; se reem
 por una CA en memoria y tres comprobaciones acotadas a un servidor local de pruebas.
 La confianza de Windows y el cliente HTTPS de producción quedan intactos. La compilación
 pasa, pero el entorno aislado conserva un error SSPI: no se afirma éxito TLS local.
+
+## Corrección de la prueba HTTPS en Windows
+
+El error de CI del commit de privacidad ocurrió únicamente en la negociación TLS del
+certificado sintético; secretos, privacidad y SQL real aprobaron. La prueba ahora
+reimporta el certificado servidor para que Schannel pueda usar una clave temporal
+Windows, sin instalar raíces ni omitir validaciones. Los detalles y límites están
+en PRUEBAS.md. La corrección se considera preparada, pendiente de confirmación en CI.
