@@ -96,3 +96,20 @@ instalador inicial para actualizar una base con datos. Los archivos de log anter
 no se borraron: el nuevo registro seguro no elimina información escrita por versiones
 anteriores.
 
+
+## Estado de entrega y publicación
+
+Se agregó README, política de reporte, exclusión de secretos y pruebas SQL en una base
+GUID que puede eliminarse sin tocar la base del usuario. El flujo Windows también
+incluye una prueba TLS real con un certificado temporal y limpieza por huella.
+
+Estas dos comprobaciones siguen sin evidencia de ejecución aprobada: LocalDB no es
+accesible para la cuenta aislada y CertEnroll no puede crear el certificado en su
+perfil (0x80070002). No se sustituyó esa evidencia por una declaración de éxito.
+
+La publicación está preparada en el repositorio Git local. La integración devolvió
+403 Resource not accessible by integration y el push por consola no pudo acceder al
+almacén Windows de credenciales. `Publicar-GitHub.ps1` permite publicar desde la
+sesión Windows autenticada sin forzar la rama ni agregar archivos inadvertidos.
+El despliegue requiere confirmar equipo, identidad y nombre HTTPS; no se abrieron
+puertos ni se alteró la seguridad de la instalación existente.

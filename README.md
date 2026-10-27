@@ -85,3 +85,11 @@ No subir contraseñas, certificados privados, bases, respaldos, logs ni archivos
 - [Formularios](FORMULARIOS.md)
 
 El diseño toma como referencia la organización por capas del [Sistema de Gimnasios](https://github.com/HiroNk11/Sistema-de-Gimnasios-C---ADO.NET), con contratos independientes y una frontera de servidor opcional.
+
+## Publicación desde esta copia local
+
+El remoto es `https://github.com/HiroNk11/Sistema-de-Turnos-.git`. Desde una sesión
+Windows autenticada en GitHub ejecutar `./Publicar-GitHub.ps1`. Publica únicamente
+los commits revisados de `main`, requiere un árbol limpio y no fuerza el remoto.
+Si la autenticación falla, completarla en Git Credential Manager o habilitar escritura
+en la integración; nunca compartir tokens ni contraseñas por chat.
