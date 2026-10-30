@@ -69,7 +69,7 @@ dotnet run --project tests/SistemaTurnos.Integracion -- --aislada database
 
 GitHub Actions restaura versiones bloqueadas con auditoría NuGet obligatoria, compila y ejecuta pruebas de Aplicación, HTTP, SQL real y HTTPS. Los resultados efectivos se consultan en la pestaña Actions; la configuración del flujo no equivale a una ejecución aprobada.
 
-La verificación local aprobó 81 pruebas de aplicación, 23 HTTP en memoria y siete del comparador de avisos, además del smoke de diez formularios. La cuenta aislada no puede acceder a LocalDB ni al almacén de certificados de Windows del usuario. La prueba SQL temporal y TLS se ejecutan también en el runner Windows para resolver esas limitaciones. Consultar [el informe de seguridad](AUDITORIA-SEGURIDAD.md) y [las pruebas](PRUEBAS.md).
+La verificación local aprobó 81 pruebas de aplicación, 23 HTTP en memoria y siete del comparador de avisos, además del smoke de diez formularios. Las pruebas de integración SQL requieren acceso a una instancia SQL Server; LocalDB depende de la identidad Windows que ejecuta el proceso. La prueba HTTPS utiliza una CA efímera en memoria. Para reproducir cada verificación, consultar los requisitos de entorno en la documentación de pruebas. Consultar [el informe de seguridad](AUDITORIA-SEGURIDAD.md) y [las pruebas](PRUEBAS.md).
 
 No subir contraseñas, certificados privados, bases, respaldos, logs ni archivos de conexión. Si se expuso una credencial, revocarla en su proveedor; borrarla del código no la vuelve segura. La aplicación no incluye MFA ni una configuración para exposición directa a Internet.
 
@@ -86,16 +86,12 @@ No subir contraseñas, certificados privados, bases, respaldos, logs ni archivos
 
 El diseño toma como referencia la organización por capas del [Sistema de Gimnasios](https://github.com/HiroNk11/Sistema-de-Gimnasios-C---ADO.NET), con contratos independientes y una frontera de servidor opcional.
 
-## Publicación desde esta copia local
+## Desarrollo
 
-El remoto es `https://github.com/HiroNk11/Sistema-de-Turnos-.git`. Desde una sesión
-Windows autenticada en GitHub ejecutar `./Publicar-GitHub.ps1`. Publica únicamente
-los commits revisados de `main`, requiere un árbol limpio y no fuerza el remoto.
-Si la autenticación falla, completarla en Git Credential Manager o habilitar escritura
-en la integración; nunca compartir tokens ni contraseñas por chat.
+Las instrucciones para publicar commits están en [DESARROLLO.md](DESARROLLO.md).
 
 ## Privacidad del código
 
 Ver [revisión de credenciales, datos privados e historial](AUDITORIA-PRIVACIDAD.md).
-Se eliminaron rutas del inventario y se preparó el historial sin correo personal.
-Los valores de configuración documentados son nombres, no credenciales incorporadas.
+La configuración de conexiones y credenciales se describe en la guía de instalación; no se incluyen secretos en los ejemplos.
+
