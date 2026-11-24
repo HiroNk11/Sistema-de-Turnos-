@@ -95,3 +95,9 @@ Las instrucciones para publicar commits están en [DESARROLLO.md](DESARROLLO.md)
 Ver [revisión de credenciales, datos privados e historial](AUDITORIA-PRIVACIDAD.md).
 La configuración de conexiones y credenciales se describe en la guía de instalación; no se incluyen secretos en los ejemplos.
 
+## Demo web interactiva
+
+[Probar Sistema de Turnos](https://nicolas-giron-sistema-turnos-demo.nicogiron09.chatgpt.site/)
+
+Adaptación web demostrativa del proyecto original en Windows Forms.
+Permite explorar agenda, reservas y cobros parciales con datos ficticios.
