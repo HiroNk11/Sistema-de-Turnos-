@@ -2,6 +2,13 @@
 
 Aplicación genérica de reservas para consultorios, odontología, psicología, veterinarias y peluquerías. C# / .NET 10, Windows Forms y SQL Server con ADO.NET. Incluye un modo cliente/servidor HTTPS para separar el acceso de los operadores del acceso a la base.
 
+## Demo web interactiva
+
+[Probar Sistema de Turnos](https://nicolas-giron-sistema-turnos-demo.nicogiron09.chatgpt.site/)
+
+Adaptación web demostrativa del proyecto original en Windows Forms.
+Permite explorar agenda, reservas y cobros parciales con datos ficticios.
+
 ## Funcionalidades
 
 - Configuración de rubro, etiquetas, zona horaria y moneda; clientes y pacientes humanos o animales.
@@ -94,10 +101,3 @@ Las instrucciones para publicar commits están en [DESARROLLO.md](DESARROLLO.md)
 
 Ver [revisión de credenciales, datos privados e historial](AUDITORIA-PRIVACIDAD.md).
 La configuración de conexiones y credenciales se describe en la guía de instalación; no se incluyen secretos en los ejemplos.
-
-## Demo web interactiva
-
-[Probar Sistema de Turnos](https://nicolas-giron-sistema-turnos-demo.nicogiron09.chatgpt.site/)
-
-Adaptación web demostrativa del proyecto original en Windows Forms.
-Permite explorar agenda, reservas y cobros parciales con datos ficticios.
