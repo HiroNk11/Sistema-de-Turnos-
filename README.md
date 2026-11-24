@@ -4,10 +4,18 @@ Aplicación genérica de reservas para consultorios, odontología, psicología, 
 
 ## Demo web interactiva
 
-[Probar Sistema de Turnos](https://nicolas-giron-sistema-turnos-demo.nicogiron09.chatgpt.site/)
-
 Adaptación web demostrativa del proyecto original en Windows Forms.
 Permite explorar agenda, reservas y cobros parciales con datos ficticios.
+
+[Probar Sistema de Turnos](https://nicolas-giron-sistema-turnos-demo.nicogiron09.chatgpt.site/)
+
+## Capturas de la aplicación
+
+Las siguientes capturas corresponden al cliente original Windows Forms; la demo enlazada arriba es una adaptación web.
+
+![Agenda semanal de Windows Forms con turnos de ejemplo](previews/agenda.png)
+
+![Formulario de cobros y saldos de Windows Forms](previews/cobros.png)
 
 ## Funcionalidades
 
